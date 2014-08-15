@@ -45,7 +45,7 @@ compiler:
 git clone git@github.com:elm-lang/Elm.git
 cd elm
 cabal sandbox init
-cabal install -j
+cabal install -j && cabal build
 cd ..
 ```
 
@@ -56,7 +56,7 @@ git clone git@github.com:elm-lang/elm-reactor.git
 cd elm-reactor
 cabal sandbox init
 cabal sandbox add-source ../elm
-cabal install -j
+cabal install -j && cabal build
 cd ..
 ```
 
