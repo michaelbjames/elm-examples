@@ -12,7 +12,7 @@ cd elm-starter-kit
 
 git clone git@github.com:elm-lang/Elm.git
 git clone git@github.com:elm-lang/elm-reactor.git
-git clone git@github.com:michaelbjames/elm-reactor-starter.git
+git clone git@github.com:michaelbjames/elm-examples.git
 
 
 status=0
@@ -48,7 +48,7 @@ if [ $status -gt 0 ]
         exit $status
 fi
 
-cd ../elm-reactor-starter/todo
+cd ../elm-examples/todo
 elm --make --only-js Todo.elm
 cd ..
 
