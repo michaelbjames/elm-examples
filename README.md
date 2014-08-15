@@ -1,65 +1,75 @@
-elm-examples
-======================
+# Elm Examples
 
-Welcome to the starter kit!
+A collection of simple Elm projects.
 
+These projects are nice examples of typical Elm code *and*
+are fun to play with in [Elm Reactor][reactor].
 
-Setup
---
+[reactor]: https://github.com/elm-lang/elm-reactor
 
-### Do you trust me?
+## Get Set Up
+
+#### The Easy Way
+
+If you have `curl` and  `bash` you can get setup by running the following commands:
+
 ```shell
 curl https://raw.githubusercontent.com/michaelbjames/elm-examples/master/setup.sh | bash
+../elm-reactor/dist/build/elm-reactor/elm-reactor
 ```
-Now run `../elm-reactor/dist/build/elm-reactor/elm-reactor` to get started.
 
---
+The Reactor should be running at [http://localhost:8000](http://localhost:8000).
+Check it out!
 
-If not, here's how we'll get set up.
+#### The Hard Way
 
-We need to:
+If you don't want to run a script from the internet or just cannot run it,
+follow these instructions:
 
-1. Find a private spot to install into
-2. Clone the latest of Elm, elm-reactor, and this repository
-3. Install into local sandboxes these repositories
-4. Run and enjoy the examples
+Create a directory to play around in:
 
-#### Before we do anything:
 ```shell
 mkdir elm-starter-kit
 cd elm-starter-kit
 ```
 
-#### Now let's get the latest from the repos we need:
+Elm Reactor is not available with Elm Platform yet, so for now we need
+to build from source. First we need to build the latest version of the
+compiler:
+
 ```shell
 git clone git@github.com:elm-lang/Elm.git
-git clone git@github.com:elm-lang/elm-reactor.git
-git clone git@github.com:michaelbjames/elm-examples.git
-```
-
-#### Next we need to build each
-##### elm
-```shell
 cd elm
 cabal sandbox init
 cabal install --only-dependencies; cabal configure; cabal build; cabal install
-```
-##### elm-reactor
-```shell
-cd ../elm-reactor
-cabal sandbox init
-cabal sandbox add-source ../elm
-cabal install --only-dependencies; cabal configure; cabal build; cabal install
-```
-##### elm-examples
-```shell
-cd ../elm-examples/todo
-elm --make --only-js Todo.elm
 cd ..
 ```
 
-### Let's try it out!
+Now we can build the Reactor:
+
+```shell
+git clone git@github.com:elm-lang/elm-reactor.git
+cd elm-reactor
+cabal sandbox init
+cabal sandbox add-source ../elm
+cabal install --only-dependencies; cabal configure; cabal build; cabal install
+cd ..
+```
+
+Finally we can clone *this* repo and build the Todo example:
+
+```shell
+git clone git@github.com:michaelbjames/elm-examples.git
+cd elm-examples/todo
+elm --make --only-js Todo.elm
+```
+
+And finally we can get started with the examples! Start the reactor
+from the `elm-examples` directory:
+
 ```shell
 ../elm-reactor/dist/build/elm-reactor/elm-reactor
 ```
 
+The Reactor should be running at [http://localhost:8000](http://localhost:8000).
+Check it out!
