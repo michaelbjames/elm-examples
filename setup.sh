@@ -23,11 +23,11 @@ cabal sandbox init
 status=$(($?+$status))
 if [ $status -gt 0 ]
     then
-        echo "\`cabal sandbox init\` failed, do you have cabal?"
+        echo "\`cabal sandbox init\` failed, do you have cabal sandbox?"
         exit $status
 fi
 
-cabal install -j --only-dependencies && cabal configure && cabal build && cabal install
+cabal install -j
 status=$(($?+$status))
 if [ $status -gt 0 ]
     then
@@ -39,7 +39,7 @@ cd ../elm-reactor
 echo "Installing elm-reactor in a sandbox"
 cabal sandbox init
 cabal sandbox add-source ../elm
-cabal install -j --only-dependencies && cabal configure && cabal build && cabal install
+cabal install -j
 
 status=$(($?+$status))
 if [ $status -gt 0 ]
@@ -50,7 +50,6 @@ fi
 
 cd ../elm-examples/todo
 elm --make --only-js Todo.elm
-cd ..
 
 echo "Setup complete."
 echo ""
