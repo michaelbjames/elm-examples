@@ -27,7 +27,7 @@ if [ $status -gt 0 ]
         exit $status
 fi
 
-cabal install -j
+cabal install -j && cabal build
 status=$(($?+$status))
 if [ $status -gt 0 ]
     then
@@ -39,7 +39,7 @@ cd ../elm-reactor
 echo "Installing elm-reactor in a sandbox"
 cabal sandbox init
 cabal sandbox add-source ../elm
-cabal install -j
+cabal install -j && cabal build
 
 status=$(($?+$status))
 if [ $status -gt 0 ]
