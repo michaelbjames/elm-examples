@@ -11,14 +11,18 @@ are fun to play with in [Elm Reactor][reactor].
 
 #### The Easy Way
 
-If you have `curl` and  `bash` you can get setup by running the following commands:
+If you have `curl` and  `bash` you can get setup by running [this script][setup]
+with the following commands. It will set up a directory named `elm-starter-kit`
+that has everything you need to get started!
+
+[setup]: https://github.com/michaelbjames/elm-examples/blob/master/setup.sh
 
 ```shell
 curl https://raw.githubusercontent.com/michaelbjames/elm-examples/master/setup.sh | bash
 ../elm-reactor/dist/build/elm-reactor/elm-reactor
 ```
 
-The Reactor should be running at [http://localhost:8000](http://localhost:8000).
+After that the Reactor should be running at [http://localhost:8000](http://localhost:8000).
 Check it out!
 
 #### The Hard Way
@@ -41,7 +45,7 @@ compiler:
 git clone git@github.com:elm-lang/Elm.git
 cd elm
 cabal sandbox init
-cabal install --only-dependencies; cabal configure; cabal build; cabal install
+cabal install -j
 cd ..
 ```
 
@@ -52,7 +56,7 @@ git clone git@github.com:elm-lang/elm-reactor.git
 cd elm-reactor
 cabal sandbox init
 cabal sandbox add-source ../elm
-cabal install --only-dependencies; cabal configure; cabal build; cabal install
+cabal install -j
 cd ..
 ```
 
