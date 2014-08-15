@@ -3,8 +3,8 @@ elm-examples
 
 Welcome to the starter kit!
 
-Let's get to playing around with Elm and it's interactive debugger.
 
+Setup
 --
 
 ### Do you trust me?
@@ -16,6 +16,13 @@ Now run `../elm-reactor/dist/build/elm-reactor/elm-reactor` to get started.
 --
 
 If not, here's how we'll get set up.
+
+We need to:
+
+1. Find a private spot to install into
+2. Clone the latest of Elm, elm-reactor, and this repository
+3. Install into local sandboxes these repositories
+4. Run and enjoy the examples
 
 #### Before we do anything:
 ```shell

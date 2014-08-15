@@ -53,5 +53,8 @@ elm --make --only-js Todo.elm
 cd ..
 
 echo "Setup complete."
-echo "Navigate to elm-reactor-starter and run:"
+echo ""
+echo ""
+echo "Please run:"
+echo "cd elm-starter-kit/elm-examples"
 echo "../elm-reactor/dist/build/elm-reactor/elm-reactor"
