@@ -3,7 +3,7 @@
 if [ -a elm-starter-kit ]
     then
         echo "Looks like you've already run this."
-        echo "\`rm -rf elm-start-kit\` and try again."
+        echo "\`rm -rf elm-starter-kit\` and try again."
         exit 1
 fi
 
@@ -17,7 +17,7 @@ git clone git@github.com:michaelbjames/elm-examples.git
 
 status=0
 
-cd elm
+cd Elm
 echo "Installing elm in the sandbox"
 cabal sandbox init
 status=$(($?+$status))
