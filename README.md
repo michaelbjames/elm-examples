@@ -19,6 +19,7 @@ that has everything you need to get started!
 
 ```shell
 curl https://raw.githubusercontent.com/michaelbjames/elm-examples/master/setup.sh | bash
+cd elm-starter-kit/elm-examples
 ../elm-reactor/dist/build/elm-reactor/elm-reactor
 ```
 
@@ -72,6 +73,7 @@ And finally we can get started with the examples! Start the reactor
 from the `elm-examples` directory:
 
 ```shell
+cd ..
 ../elm-reactor/dist/build/elm-reactor/elm-reactor
 ```
 
