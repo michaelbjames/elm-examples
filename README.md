@@ -44,7 +44,7 @@ compiler:
 
 ```shell
 git clone git@github.com:elm-lang/Elm.git
-cd elm
+cd Elm
 cabal sandbox init
 cabal install -j && cabal build
 cd ..
