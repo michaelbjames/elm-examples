@@ -10,9 +10,9 @@ fi
 mkdir elm-starter-kit
 cd elm-starter-kit
 
-git clone git@github.com:elm-lang/Elm.git
-git clone git@github.com:elm-lang/elm-reactor.git
-git clone git@github.com:michaelbjames/elm-examples.git
+git clone https://github.com/elm-lang/Elm.git
+git clone https://github.com/elm-lang/elm-reactor.git
+git clone https://github.com/michaelbjames/elm-examples.git
 
 
 status=0
@@ -20,7 +20,7 @@ status=0
 cd Elm
 echo "Installing elm in the sandbox"
 cabal sandbox init
-status=$(($?+$status))
+status=$?
 if [ $status -gt 0 ]
     then
         echo "\`cabal sandbox init\` failed, do you have cabal sandbox?"
@@ -28,7 +28,7 @@ if [ $status -gt 0 ]
 fi
 
 cabal install -j && cabal build
-status=$(($?+$status))
+status=$?
 if [ $status -gt 0 ]
     then
         echo "Installing elm failed, please email the list with the error!"
@@ -41,7 +41,7 @@ cabal sandbox init
 cabal sandbox add-source ../elm
 cabal install -j && cabal build
 
-status=$(($?+$status))
+status=$?
 if [ $status -gt 0 ]
     then
         echo "Installing elm-reactor failed, please email the list with the error!"

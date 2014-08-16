@@ -43,7 +43,7 @@ to build from source. First we need to build the latest version of the
 compiler:
 
 ```shell
-git clone git@github.com:elm-lang/Elm.git
+git clone https://github.com/elm-lang/Elm.git
 cd Elm
 cabal sandbox init
 cabal install -j && cabal build
@@ -53,7 +53,7 @@ cd ..
 Now we can build the Reactor:
 
 ```shell
-git clone git@github.com:elm-lang/elm-reactor.git
+git clone https://github.com/elm-lang/elm-reactor.git
 cd elm-reactor
 cabal sandbox init
 cabal sandbox add-source ../elm
@@ -64,7 +64,7 @@ cd ..
 Finally we can clone *this* repo and build the Todo example:
 
 ```shell
-git clone git@github.com:michaelbjames/elm-examples.git
+git clone https://github.com/michaelbjames/elm-examples.git
 cd elm-examples/todo
 elm --make --only-js Todo.elm
 ```
