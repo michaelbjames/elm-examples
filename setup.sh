@@ -17,16 +17,17 @@ git clone https://github.com/michaelbjames/elm-examples.git
 
 status=0
 
-cd Elm
-echo "Installing elm in the sandbox"
-cabal sandbox init
+echo "Creating sandbox in elm-starter-kit..."
+cabal sandbox init --sandbox .
 status=$?
 if [ $status -gt 0 ]
     then
-        echo "\`cabal sandbox init\` failed, do you have cabal sandbox?"
+        echo "\`cabal sandbox init\` failed, do you have the lastest cabal?"
         exit $status
 fi
 
+cd Elm
+cabal sandbox init --sandbox ..
 cabal install -j && cabal build
 status=$?
 if [ $status -gt 0 ]
@@ -35,10 +36,10 @@ if [ $status -gt 0 ]
         exit $status
 fi
 
+
 cd ../elm-reactor
 echo "Installing elm-reactor in a sandbox"
-cabal sandbox init
-cabal sandbox add-source ../elm
+cabal sandbox init --sandbox ..
 cabal install -j && cabal build
 
 status=$?
@@ -55,5 +56,6 @@ echo "Setup complete."
 echo ""
 echo ""
 echo "Please run:"
-echo "cd elm-starter-kit/elm-examples"
-echo "../elm-reactor/dist/build/elm-reactor/elm-reactor"
+echo "export PATH=\$(pwd)/elm-starter-kit/bin/:\$PATH"
+echo "cd elm-examples"
+echo "elm-reactor"

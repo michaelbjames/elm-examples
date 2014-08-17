@@ -19,8 +19,9 @@ that has everything you need to get started!
 
 ```shell
 curl https://raw.githubusercontent.com/michaelbjames/elm-examples/master/setup.sh | bash
+export PATH=$(pwd)/elm-starter-kit/bin/:$PATH
 cd elm-starter-kit/elm-examples
-../elm-reactor/dist/build/elm-reactor/elm-reactor
+elm-reactor
 ```
 
 After that the Reactor should be running at [http://localhost:8000](http://localhost:8000).
@@ -36,6 +37,7 @@ Create a directory to play around in:
 ```shell
 mkdir elm-starter-kit
 cd elm-starter-kit
+cabal sandbox init --sandbox .
 ```
 
 Elm Reactor is not available with Elm Platform yet, so for now we need
@@ -45,7 +47,7 @@ compiler:
 ```shell
 git clone https://github.com/elm-lang/Elm.git
 cd Elm
-cabal sandbox init
+cabal sandbox init --sandbox ..
 cabal install -j && cabal build
 cd ..
 ```
@@ -55,13 +57,12 @@ Now we can build the Reactor:
 ```shell
 git clone https://github.com/elm-lang/elm-reactor.git
 cd elm-reactor
-cabal sandbox init
-cabal sandbox add-source ../elm
+cabal sandbox init --sandbox ..
 cabal install -j && cabal build
 cd ..
 ```
 
-Finally we can clone *this* repo and build the Todo example:
+Next we can clone *this* repo and build the Todo example:
 
 ```shell
 git clone https://github.com/michaelbjames/elm-examples.git
@@ -69,12 +70,19 @@ cd elm-examples/todo
 elm --make --only-js Todo.elm
 ```
 
+Finally we need to add the sandbox to the current PATH variable:
+
+```shell
+cd ../..
+export PATH=$(pwd)/bin/:$PATH
+```
+
 And finally we can get started with the examples! Start the reactor
 from the `elm-examples` directory:
 
 ```shell
-cd ..
-../elm-reactor/dist/build/elm-reactor/elm-reactor
+cd elm-examples
+elm-reactor
 ```
 
 The Reactor should be running at [http://localhost:8000](http://localhost:8000).
