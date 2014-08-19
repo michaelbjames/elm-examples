@@ -14,7 +14,6 @@ git clone https://github.com/elm-lang/Elm.git
 git clone https://github.com/elm-lang/elm-reactor.git
 git clone https://github.com/michaelbjames/elm-examples.git
 
-
 status=0
 
 echo "Creating sandbox in elm-starter-kit..."
@@ -50,6 +49,7 @@ if [ $status -gt 0 ]
 fi
 
 cd ../elm-examples/todo
+elm-get install
 elm --make --only-js Todo.elm
 
 echo "Setup complete."

@@ -67,6 +67,7 @@ Next we can clone *this* repo and build the Todo example:
 ```shell
 git clone https://github.com/michaelbjames/elm-examples.git
 cd elm-examples/todo
+elm-get install
 elm --make --only-js Todo.elm
 ```
 
