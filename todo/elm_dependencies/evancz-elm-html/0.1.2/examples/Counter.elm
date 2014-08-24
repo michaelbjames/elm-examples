@@ -1,24 +1,22 @@
 
+import Html
 import Html (..)
-import Html.Tags (..)
 import Window
 
-counter : Int -> Html
+counter : Float -> Html
 counter count =
-    let px = show (count + 100) ++ "px" in
-    div [ style
-            [ prop "textAlign"     "center"
-            , prop "verticalAlign" "center"
-            , prop "lineHeight"    px
-            , prop "border"        "1px solid red"
-            , prop "width"         px
-            , prop "height"        px
-            ]
+    node "div" []
+        [ "textAlign"     := "center"
+        , "verticalAlign" := "center"
+        , "lineHeight"    := px (100 + count)
+        , "border"        := "1px solid red"
+        , "width"         := px (100 + count)
+        , "height"        := px (100 + count)
         ]
         [ text (show count) ]
 
 scene : Int -> (Int,Int) -> Element
 scene count (w,h) =
-    toElement w h (counter count)
+    Html.toElement w h (counter (toFloat count))
 
 main = scene <~ count (every second) ~ Window.dimensions
