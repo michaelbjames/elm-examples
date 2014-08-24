@@ -23,6 +23,7 @@ import Html.Events (..)
 import Html.Optimize.RefEq as Ref
 import Maybe
 import Window
+import Debug
 
 import Graphics.Input (..)
 import Graphics.Input as Input
@@ -47,7 +48,7 @@ type Task =
 
 newTask : String -> Int -> Task
 newTask desc id =
-    { description = desc
+    { description = Debug.watch "Most Recent Task Description" desc
     , completed = False 
     , editing = False
     , id = id
@@ -82,11 +83,11 @@ data Action
 -- How we step the state forward for any given action
 step : Action -> State -> State
 step action state =
-    case action of
+    case Debug.watch "Current action" action of
       NoOp -> state
 
       Add ->
-          { state | uid <- state.uid + 1
+          { state | uid <- Debug.watch "Todo ID" state.uid + 1
                   , field <- ""
                   , tasks <- if String.isEmpty state.field
                                then state.tasks
