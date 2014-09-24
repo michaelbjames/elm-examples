@@ -76,7 +76,6 @@ display (w',h') mario =
                 | otherwise     -> "stand"
 
       src  = "imgs/mario/"++ verb ++ "/" ++ show mario.dir ++ ".gif"
-      --src  = "http://i188.photobucket.com/albums/z137/DreamsInMotion/Video%20Game%20Pictures/Metroid/samus-1.gif" 
 
       marioImage = image 35 35 src
 
